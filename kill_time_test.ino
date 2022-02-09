@@ -69,7 +69,7 @@ void loop() {
       }
   } else if (idx == 9) {
     
-    analogWrite(5,power);
+    analogWrite(5,power); 
     
   } else{
 
