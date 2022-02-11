@@ -1,3 +1,3 @@
 wiring
 ----------
-![wiring](./res/wiring_scene.jpg)
+![wiring](../../res/wiring_scene.jpg)
