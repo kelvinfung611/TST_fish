@@ -10,3 +10,12 @@ TX to RX & RX to TX
 
 Result: Failed
 Remarks: Code need further changes (technically working but not expected outcome)
+
+
+
+
+************************************
+wiring: res/wire connection.jpg
+
+result video: res/12 Feb 2022_testing_result.mp4
+************************************
