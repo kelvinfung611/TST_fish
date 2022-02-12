@@ -15,7 +15,7 @@ Remarks: Code need further changes (technically working but not expected outcome
 
 
 ************************************
-wiring: res/wire connection.jpg
+wiring: https://github.com/kelvinfung611/TST_fish/blob/main/res/wire%20connection.jpg
 
-result video: res/12 Feb 2022_testing_result.mp4
+result video: https://github.com/kelvinfung611/TST_fish/blob/main/res/12%20Feb%202022_testing_result.mp4
 ************************************
