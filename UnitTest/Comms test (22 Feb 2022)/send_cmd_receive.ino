@@ -76,7 +76,7 @@ void loop() {
       
      }
   }
-  
+   
   /*
    if (millis() % 500 != 0 and millis() % 1000 == 0){
     ascii_sum = 'R' + '0' + 'U' + '0' + 'T' + '0' + 'P' + '0' ;
