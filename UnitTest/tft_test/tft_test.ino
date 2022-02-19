@@ -11,9 +11,12 @@ Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
 float volts = 12.345;
 float amps = 11.234;
 float sp = 10.000;
-float turnVal = 0.010;
+float temperature = 30.0;
+int turnVal = 9;
 int power = 9;
-String coordinate = "(x,y)";
+int xMap = 3;
+int yMap = 6;
+int pos_main = 0;
 void setup() {
   tft.begin();
   tft.setRotation(1);
@@ -31,19 +34,25 @@ void setup() {
 }
 
 void loop(void) {
-
+  //amps = amps + 0.56;
   tft.setTextSize(3);
   tft.setCursor(20, 10);
   tft.print(volts, 3);
   tft.println(" V");
   tft.setTextSize(3);
-  tft.setCursor(20, 60);
+  tft.setCursor(20, 40);
   tft.print(amps, 3);
   tft.println(" A");
   tft.setTextSize(3);
-  tft.setCursor(20, 110);
+  tft.setCursor(20, 70);
   tft.print(sp, 3);
   tft.println(" km/h");
+  tft.setTextSize(3);
+  tft.setCursor(20,100);
+  tft.println(temperature, 3);
+  tft.setTextSize(3);
+  tft.setCursor(20,130);
+  tft.println(pos_main);
 
   tft.setTextSize(2);
   tft.setCursor(20, 158);
@@ -52,7 +61,7 @@ void loop(void) {
   tft.println(turnVal,3);
   tft.setCursor(20,178);
   tft.print("       ");
-  tft.print(coordinate);
+  tft.print((String)"("+xMap+","+yMap+")");
   
   tft.setTextSize(2);
   tft.setCursor(20, 198);
