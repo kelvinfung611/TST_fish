@@ -1,0 +1,68 @@
+String c;
+String cmd;
+bool check;
+int ascii_sum;
+char incomingByte;
+
+// int A_current;
+// int voltage;
+// int motor_rpm;
+// int speed_now;
+
+bool checkSum(char incomingByte, int siglen, char cmd[]) {
+  check = false;
+  int cSum=0;
+  for (int c=0; c < 15; c++){
+    cSum+=cmd[c];
+  }
+  String numcheck = String(cmd[15]) + String(cmd[16]) + String(cmd[17]) + String(cmd[18]);
+  int number = numcheck.toInt();
+  //Serial.println(numcheck);
+  //Serial.println (cSum);
+  if (cSum == number) {
+    check = true;
+  }
+  return check;
+}
+
+void receive(int & temperature, int & voltage, int & current, int & rpm){
+    if (Serial1.available()>0){
+    while(incomingByte != '!'){
+    
+      incomingByte = Serial1.read();
+      }
+      incomingByte = Serial1.read();
+      char cmd[20];
+      int siglen = 0;
+      while (incomingByte != '$' and siglen < 20) {  //read char by char until we know the end of signal is reached indicated by the identifier '$'
+        if (Serial1.available()>0){
+           cmd[siglen] = incomingByte;
+          siglen++;
+          incomingByte = Serial1.read();
+        }
+      }
+      if (Serial1.available()>60){
+        while (Serial1.available()>0){
+          Serial1.read();   
+        }
+      }
+      //cmd[11] = '\0';
+      //Serial.println(cmd);
+      check = checkSum(incomingByte, siglen, cmd);
+      if (check == true) {
+        
+        String raw_tem = String(cmd[1]); //used to be speed_now
+        temperature = raw_tem.toInt();
+        String raw_vol = String(cmd[3])+ String(cmd[4]) + String(cmd[5]);
+        voltage = raw_vol.toInt();
+        String raw_current = String(cmd[7])+ String(cmd[8]) + String(cmd[9]);
+        current = raw_current.toInt();
+        String raw_rpm = String(cmd[11])+ String(cmd[12]) + String(cmd[13]);
+        rpm = raw_rpm.toInt();
+        
+      } else{
+        //error msg
+      }
+      
+     }
+}
