@@ -25,6 +25,17 @@ bool checkSum(char incomingByte, int siglen, char cmd[]) {
   return check;
 }
 
+void transmit(int xMap, int yMap, int tMap, int pMap){
+  if(millis() - timer1 > 200){
+    timer1 = millis();
+
+    ascii_sum = 'R' + (xMap + '0')+'U' + (yMap + '0')+'T' + (tMap + '0')+'P' + (pMap + '0');
+    sum_str = "R" + String(xMap) +"U"+ String(yMap)+"T" + String(tMap) +"P"+ String(pMap) + String(ascii_sum) + "$"; //payload + checksum
+    strcpy(message,sum_str.c_str());
+    Serial1.write(message);
+  }
+}
+
 void receive(int & temperature, int & voltage, int & current, int & rpm){
     if (Serial1.available()>0){
     while(incomingByte != '!'){
