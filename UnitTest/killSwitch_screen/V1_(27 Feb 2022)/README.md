@@ -3,6 +3,11 @@ This is the V1 of the kill switch test
 images :
 https://github.com/kelvinfung611/TST_fish/blob/main/res/kill-switch-test_images/V1%20(27%20FEB%202022)/README.md
 
+*************************************
+Tidy version is same as the original V1 code but just some commented parts removed
+*************************************
+
+
 Result is fine but some can be improved:
 
 - if Serial2 keep reading garbage value, it should also be killed after 5 seconds
