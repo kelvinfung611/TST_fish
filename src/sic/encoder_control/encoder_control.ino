@@ -7,10 +7,12 @@
 #define ENCB 2 // BLUE
 String cmd;
 long int pos_Main;
-
+  int level = 0;
+  int idx = 9;
+  int power = 0;
 
 void setup() {
-  Serial.begin(115200);
+  Serial.begin(9600); //change to 115200 if you want to
   pinMode(ENCA,INPUT_PULLUP);
   pinMode(ENCB,INPUT_PULLUP);
   attachInterrupt( digitalPinToInterrupt(ENCA), readEncoder_Main, RISING);
@@ -21,9 +23,6 @@ void setup() {
 
 void loop() {
   int tem = (pos_Main % 2500) + 1; 
-  int level;
-  int idx;
-  int power;
   //Serial.println(pos_Main);
   if (Serial.available() > 0){
     cmd = Serial.readString();

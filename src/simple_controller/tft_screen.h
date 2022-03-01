@@ -1,35 +1,11 @@
-#include "SPI.h"
-#include "PDQ_GFX.h"
-#include "PDQ_ILI9341_config.h"
-#include "PDQ_ILI9341.h"
-PDQ_ILI9341 tft;
-#define libName "PDQ_GFX library"
-//#include "Adafruit_GFX.h"
-//#include "Adafruit_ILI9341.h"
-//#define TFT_DC 9
-//#define TFT_CS 10
-//Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
-//#define libName "Adafruit library"
+#include "Adafruit_GFX.h"
+#include "Adafruit_ILI9341.h"
+#define TFT_DC 9
+#define TFT_CS 10
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS, TFT_DC);
+#define libName "Adafruit library"
 
 void init_screen(){
-    Serial.begin(115200);
-  while (!Serial);
-  
-#if defined(_PDQ_ILI9341H_)
-  Serial.println(F("PDQ ILI9341 2.2\" SPI TFT Test!     ")); 
-#else
-  Serial.println(F("Adafruit ILI9341 2.2\" SPI TFT Test!")); 
-#endif
- 
-#if defined(ILI9341_RST_PIN)  // reset like Adafruit does
-  FastPin<ILI9341_RST_PIN>::setOutput();
-  FastPin<ILI9341_RST_PIN>::hi();
-  FastPin<ILI9341_RST_PIN>::lo();
-  delay(1);
-  FastPin<ILI9341_RST_PIN>::hi();
-#endif
-
-  tft.begin();      // initialize LCD
   tft.begin();
   tft.setRotation(1);
   tft.fillScreen(ILI9341_WHITE);
@@ -38,6 +14,7 @@ void init_screen(){
   tft.setCursor(20, 46);
   tft.println("starting");
   delay(2500);
+  tft.fillScreen(ILI9341_WHITE);
 }
 
 void render(int volts, int amps, int sp, int temperature, int turnVal, int power, int xMap, int yMap, int pos_main){
@@ -66,10 +43,8 @@ void render(int volts, int amps, int sp, int temperature, int turnVal, int power
   tft.print("turnVal: ");
   tft.println(turnVal);
   tft.setCursor(20,178);
-  tft.print("    ");
-  tft.print(xMap);
-  tft.print(", ");
-  tft.println(yMap);
+  tft.print("       ");
+  tft.print((String)"("+xMap+","+yMap+")");
   
   tft.setTextSize(2);
   tft.setCursor(20, 198);

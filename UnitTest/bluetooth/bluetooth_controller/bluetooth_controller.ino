@@ -1,4 +1,3 @@
-#include "SPI.h"
 #include "tft_screen.h"
 //#include "button.h"
 //#include "communication.h"
@@ -55,10 +54,8 @@ void loop() {
   if(yMap <= 0){
     yMap = 0;
   }
-  render(volts,amps,sp,temperature,turnVal,power,xMap,yMap,pos_main);
+  render(volts,amps,sp,temperature,1,1,xMap,yMap,pos_main);
   xMap = 0;
   yMap = 0;
-  tft.clearDisplay();
-  tft.fillScreen(ILI9341_WHITE);
 
 }

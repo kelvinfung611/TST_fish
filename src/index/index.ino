@@ -2,10 +2,10 @@
 #include "tft_screen.h"
 #include "button.h"
 #include "communication.h"
-int volts = 12.345;
-int amps = 11.234;
-int sp = 10.000;
-int temperature = 30.0;
+int volts = 12;
+int amps = 11;
+int sp = 10;
+int temperature = 30;
 int turnVal = 9;
 int power = 9;
 int xMap = 3;
