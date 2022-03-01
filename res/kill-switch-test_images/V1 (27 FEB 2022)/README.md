@@ -1,7 +1,6 @@
 link to the result video
 
-
-https://bit.ly/3plfcui
+https://www.youtube.com/watch?v=VMRJX6PEyuU
 
 
 the code:
