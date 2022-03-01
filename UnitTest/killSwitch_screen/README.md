@@ -1,4 +1,4 @@
-This is the page of kill siwtch test
+This is the page of kill switch test
 
 the general versions are supposed to be the same as the lastest version updated, every change of the code should be done in the general ino file
 
