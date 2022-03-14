@@ -11,7 +11,7 @@ int power = 9;
 int xMap = 3;
 int yMap = 6;
 int pos_main = 0;
-
+int sensorValueX, sensorValueY = 0;
 void setup() {
   // put your setup code here, to run once:
   Serial1.begin(9600);

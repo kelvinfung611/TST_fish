@@ -3,7 +3,8 @@ String cmd;
 bool check;
 int ascii_sum;
 char incomingByte;
-
+long long timer1 = 0;
+char message [10];
 // int A_current;
 // int voltage;
 // int motor_rpm;
@@ -30,7 +31,7 @@ void transmit(int xMap, int yMap, int tMap, int pMap){
     timer1 = millis();
 
     ascii_sum = 'R' + (xMap + '0')+'U' + (yMap + '0')+'T' + (tMap + '0')+'P' + (pMap + '0');
-    sum_str = "R" + String(xMap) +"U"+ String(yMap)+"T" + String(tMap) +"P"+ String(pMap) + String(ascii_sum) + "$"; //payload + checksum
+    String sum_str = "R" + String(xMap) +"U"+ String(yMap)+"T" + String(tMap) +"P"+ String(pMap) + String(ascii_sum) + "$"; //payload + checksum
     strcpy(message,sum_str.c_str());
     Serial1.write(message);
   }
