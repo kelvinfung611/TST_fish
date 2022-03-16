@@ -9,3 +9,5 @@ History:
 27 Feb 2022: uploaded V1
 
 6 Mar 2022: uploaded VX (incompleted V2, unable to communicate, only killSwitch working)
+
+16 Mar 2022: uploaded V2 (wired communication working, wireless to be tested, suggest to add a reset button)
