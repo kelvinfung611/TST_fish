@@ -1,3 +1,4 @@
+
 #define upbutton 2
 #define rightbutton 3
 #define downbutton 4
@@ -58,7 +59,7 @@ void loop(){
     Serial.println(cmd);
     //strcpy(message, cmd.c_str());
     Serial1.print(cmd);
-    Serial2.print(cmd);
+   // Serial2.print(cmd);
     transmit();
   }
   
@@ -73,10 +74,10 @@ void transmit(){
   
     ascii_sum = 'R' + (xMap + '0') + 'U' + (yMap + '0') + 'T' + (tMap + '0') + 'P' + (pMap + '0'); // Checksum
     sum_str = "R" + String(xMap) + "U" + String(yMap) + "T" + String(tMap) + "P" + String(pMap) + String(ascii_sum) + "?"; //payload + checksum
-    strcpy(message, sum_str.c_str());
-    Serial2.write(message);
+    //strcpy(message, sum_str.c_str());
+    Serial2.print(sum_str);
     Serial.print("Signal: ");
-    Serial.println(message);
+    Serial.println(sum_str);
     //blocking function, no need to wait for delay if use flush
     Serial2.flush();
 }
