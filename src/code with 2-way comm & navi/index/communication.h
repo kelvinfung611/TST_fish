@@ -11,7 +11,7 @@ char message [10];
 // int speed_now;
 
 bool checkSum(char incomingByte, int siglen, char cmd[]) {
-  return true;
+      return true; // here is the hard code
   check = false;
   int cSum=0;
   for (int c=0; c < 15; c++){
